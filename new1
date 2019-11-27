@@ -11,3 +11,10 @@ sofia_ROW :BLACKLIGHT
 scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local_dir（本地目录）
 
 例如:scp -r root@192.168.0.101:/var/www/test  /var/www/  
+
+git add file 
+git config --global user.name ""
+git config --global user.email ""
+git commit -m ""
+git status
+git diff file 
