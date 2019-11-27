@@ -1,0 +1,13 @@
+ssh pc180402@10.50.40.54
+
+sofia_ROW :BLACKLIGHT
+
+/home/pc180402/sofia/code/kernel/msm-4.14/arch/arm64/boot/dts/qcom/
+/home/pc180402/sofia/code/kernel/msm-4.14/drivers/video/backlight/
+
+
+
+从服务器下载整个目录
+scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local_dir（本地目录）
+
+例如:scp -r root@192.168.0.101:/var/www/test  /var/www/  

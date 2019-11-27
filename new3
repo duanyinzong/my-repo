@@ -1,0 +1,77 @@
+static int platform_read_i2c_block(struct i2c_client *client, char *writebuf,
+			   int writelen, char *readbuf, int readlen)
+			   static int aw99703_i2c_read(struct i2c_client *client, u8 addr, u8 *val)
+static int platform_write_i2c_block(struct i2c_client *client,
+		char *writebuf, int writelen)
+static int aw99703_i2c_write(struct i2c_client *client, u8 addr, const u8 val)	
+static int aw99703_gpio_init(struct aw99703_data *drvdata)
+**static int aw99703_i2c_write_bit(struct i2c_client *client,
+	unsigned int reg_addr, unsigned int  mask, unsigned char reg_data)	
+static int aw99703_brightness_map(unsigned int level)
+static int aw99703_bl_enable_channel(struct aw99703_data *drvdata)
+static void aw99703_pwm_mode_enable(struct aw99703_data *drvdata)
+static void aw99703_pwm_maptype_set(struct aw99703_data *drvdata)
+static void aw99703_ramp_setting(struct aw99703_data *drvdata)
+static void aw99703_flash_setting(struct aw99703_data *drvdata)
+static void aw99703_transition_ramp(struct aw99703_data *drvdata)
+static void aw99703_bstctrl1_set(struct aw99703_data *drvdata)
+static void aw99703_pwm_config_set(struct aw99703_data *drvdata)
+static int aw99703_backlight_init(struct aw99703_data *drvdata)
+static int aw99703_backlight_enable(struct aw99703_data *drvdata)
+int  aw99703_set_brightness(struct aw99703_data *drvdata, int brt_val)
+static int aw99703_bl_get_brightness(struct backlight_device *bl_dev)
+static int aw99703_bl_update_status(struct backlight_device *bl_dev)
+static const struct backlight_ops aw99703_bl_ops = {
+		.update_status = aw99703_bl_update_status,
+		.get_brightness = aw99703_bl_get_brightness,
+};
+static int aw99703_read_chipid(struct aw99703_data *drvdata)
+static void aw99703_get_dt_data(struct device *dev, struct aw99703_data *drvdata)
+static ssize_t aw99703_i2c_reg_store(struct device *dev,
+		struct device_attribute *attr, const char *buf, size_t count)
+static ssize_t aw99703_i2c_reg_show(struct device *dev,
+			struct device_attribute *attr, char *buf)
+static DEVICE_ATTR(reg, 0664, aw99703_i2c_reg_show, aw99703_i2c_reg_store);
+static struct attribute *aw99703_attributes[] = {
+	&dev_attr_reg.attr,
+	NULL
+};
+static struct attribute_group aw99703_attribute_group = {
+	.attrs = aw99703_attributes
+};
+static int aw99703_probe(struct i2c_client *client,
+			const struct i2c_device_id *id)			
+static int aw99703_remove(struct i2c_client *client)
+static const struct i2c_device_id aw99703_id[] = {
+	{AW99703_NAME, 0},
+	{}
+};
+static struct of_device_id match_table[] = {
+		{.compatible = "awinic,aw99703-bl",}
+};
+
+MODULE_DEVICE_TABLE(i2c, aw99703_id);
+
+static struct i2c_driver aw99703_i2c_driver = {
+	.probe = aw99703_probe,
+	.remove = aw99703_remove,
+	.id_table = aw99703_id,
+	.driver = {
+		.name = AW99703_NAME,
+		.owner = THIS_MODULE,
+		.of_match_table = match_table,
+	},
+};
+
+module_i2c_driver(aw99703_i2c_driver);
+MODULE_DESCRIPTION("Back Light driver for aw99703");
+MODULE_LICENSE("GPL v2");
+			
+			
+			
+			
+			
+			
+			
+			
+			
